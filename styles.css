@@ -125,7 +125,6 @@ button:active{
 .btn__menu {
     background-color: transparent;
     font-size: 40px;
-    text-align: center;
     border: none;
     color: #7342d6;
     display: none;
@@ -143,18 +142,20 @@ button:active{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 300ms ease;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .menu--open {
     max-height: 100vh;
-    overflow: hidden;
-}
-.menu--open, .menu__backdrop {
-    visibility: visible;
-    opacity: 1;
-    transform: translate(0);
+    overflow-y: hidden;
 }
 
+.menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
 
 .menu__links {
     display: flex;
@@ -162,11 +163,8 @@ button:active{
     align-items: center;
 }
 
+ 
 .menu__list {
-    padding: 32px 0;
-}
-
-.book__img {
     padding: 32px 0;
 }
 
@@ -175,6 +173,7 @@ button:active{
     color: white;
 }
 
+
 .btn__menu--close {
     position: absolute;
     right: 20px;
@@ -182,6 +181,8 @@ button:active{
     padding: 8px;
     color: white;
 }
+
+
 
 /* 
 
@@ -193,7 +194,7 @@ LANDING
     background-color: rgba(115, 66, 214, 0.1);
 }
 
-header {
+.header {
     height: calc(100vh - 80px);
 }
 
@@ -216,7 +217,7 @@ header {
 
 .header__img--wrapper {
     padding: 20px;
-    z-index: 2;
+    z-index: 50;
 }
 
 .container {
@@ -309,6 +310,7 @@ HIGHLIGHTS
 .highlight__subtitle {
 font-size: 20px;
 margin-bottom: 16px;
+text-align: center;
 }
 
 /* 
@@ -411,4 +413,47 @@ footer {
 
 .footer__link {   
     padding: 0 8px;
+}
+
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
+@media (max-width: 768px) {
+    .header__description {
+      padding: 0 24px;
+    }
+  
+    h1 {
+      font-size: 40px;
+    }
+  
+    h2 {
+      font-size: 26px;
+    }
+  
+    button {
+      font-size: 18px;
+    }
+  
+    .book {
+      width: 50%;
+    }
+  }
+
+/* SMALL PHONES, LARGE SMARTPHONES */
+
+@media (max-width: 550px){
+    .btn__menu {
+        display: block;
+    }
+
+    .nav__links {
+        display: none;
+    }
+
+    .highlight {
+        width: 100%;
+    }
+
+    highlight:not(:last-child) {
+        margin-bottom: 24px;
+    }
 }
